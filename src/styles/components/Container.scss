@@ -1,0 +1,10 @@
+.Container {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1170px;
+
+    &._narrow {
+        max-width: 980px;
+    }
+}

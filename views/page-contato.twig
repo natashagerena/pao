@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+    {% include "banner.twig" %}
+
+    <div x-style="mb: 100px;">
+        {% include "header.twig" %}
+    </div>
+
+    <div class="Contato">
+        <div class="Container _narrow">
+            <div class="_text-center wow fadeIn">
+                <h2 class="Title _with-line">Contato</h2>
+                <p x-style="mb: 32px;">{{ post.subtitulo }}</p>
+            </div>
+            <p x-style="mb: 100px;">{{ post.texto }}</p>
+
+            <div class="form wow fadeIn" x-style="mb: 80px;">
+                {{ '[contact-form-7 id="17" title="Contato"]' | shortcodes }}
+            </div>
+
+            <div class="_text-center wow fadeIn">
+                <ul class="Redes _contato">
+                    {% for item in option('redes_sociais') %}
+                        <li><a href="{{ item.link }}" aria-label="{{ item.rotulo }}" target="_blank"><i class="ri-{{ item.rotulo }}-line"></i></a></li>
+                    {% endfor %}
+
+                    {% if option('whatsapp') %}
+                    <li><a href="https://wa.me/55{{option('whatsapp')}} | replace({' ':'', '-':'', '(':'', ')':'', '.':'', '+':'' }) }}" aria-label="Link whatsapp" target="_blank"><i class="ri-whatsapp-line"></i></a></li>
+                    {% endif %}
+                </ul>
+                <p class="endereco" x-style="mb: 100px;">{{ option('endereco') | nl2br }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="_bg-gray" x-style="pt: 90px;">
+        <div class="Container _narrow">
+            <div class="_text-center wow fadeIn">
+                <h2 class="Title _with-line">Destaques</h2>
+                <p x-style="mb: 32px;">{{ home.subtitulo_destaques }}</p>
+            </div>
+
+            <div class="Cards Row _gutters wow fadeIn">
+                {% for item in home.get_field('destaques') %}
+                    <div class="card col-4">
+                        <a href="{{ item.botao.url }}"{% if target %} target="_blank"{% endif %}>
+                            <div class="imagem"><div class="_bg" style="background-image: url({{ Image(item.imagem) }})"></div></div>
+                            <p class="texto">{{ item.texto | nl2br }}</p>
+                            <span class="link">{{ item.botao.title }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

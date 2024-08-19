@@ -1,0 +1,60 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+    {% include "banner.twig" %}
+
+    <div x-style="mb: 46px;">
+        {% include "header.twig" %}
+    </div>
+
+    <div class="Sliders wow fadeInUp">
+        <div class="itens">
+            {% for item in post.get_field('imagens_slider') %}
+                <div class="item _bg" style="background-image: url({{ Image(item.imagem) }})">
+                    <div class="texto">
+                        <h3 class="_bg-text-dark wow fadeInLeft">{{ item.texto_1 }}</h3>
+                        <h3 class="_bg-text-light wow fadeInLeft">{{ item.texto_2 }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="slider-info">
+          <span class="current-slide">1</span> / <span class="total-slides"></span>
+        </div>
+    </div>
+
+    <div class="_bg-gray" x-style="pt: 90px;">
+        <div class="Container _narrow">
+            <div class="_text-center wow fadeIn">
+                <h2 class="Title _with-line">Compromisso com <br>a qualidade.</h2>
+                <p x-style="mb: 32px;">{{ post.subtitulo_compromisso }}</p>
+            </div>
+            <p x-style="mb: 50px;">{{ post.texto_compromisso | nl2br }}</p>
+
+            <div class="_text-center wow fadeIn">
+                <h2 class="Title _with-line">Destaques</h2>
+                <p x-style="mb: 32px;">{{ post.subtitulo_destaques }}</p>
+            </div>
+
+            <div class="Cards Row _gutters wow fadeIn">
+                {% for item in post.get_field('destaques') %}
+                    <div class="card col-4">
+                        <a href="{{ item.botao.url }}"{% if target %} target="_blank"{% endif %}>
+                            <div class="imagem"><div class="_bg" style="background-image: url({{ Image(item.imagem) }})"></div></div>
+                            <p class="texto">{{ item.texto | nl2br }}</p>
+                            <span class="link">{{ item.botao.title }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="Container _text-center wow fadeIn">
+        <h2 class="Title _with-line">Nosso canal</h2>
+        <p x-style="mb: 32px;">{{ post.subtitulo_canal }}</p>
+    </div>
+
+    {% include "videos.twig" %}
+{% endblock %}

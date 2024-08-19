@@ -1,0 +1,39 @@
+.Cards {
+    padding: 50px 0 100px;
+    margin-bottom: 100px;
+
+    .card {
+        background-color: #fff;
+
+        .imagem {
+            overflow: hidden;
+
+            ._bg {
+                display: block;
+                padding-top: 90%;
+                transition: 2s;
+            }
+        }
+
+        .texto {
+            padding: 20px;
+        }
+
+        .link {
+            display: block;
+            background-color: #bfbfbf;
+            padding: 10px 20px;
+        }
+
+        &:hover {
+            .imagem ._bg{
+                animation: zoomAnimation 4s;
+            }
+
+            .link {
+                background-color: #393939;
+                color: #fff;
+            }
+        }
+    }
+}

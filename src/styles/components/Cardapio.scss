@@ -1,0 +1,160 @@
+.Cardapio {
+    margin: 80px 0 60px;
+    background-color: #eaeaea;
+    padding: 40px 50px;
+
+    .categoria {
+        position: relative;
+        border-top: 1px solid;
+        padding: 5px 0 0;
+        cursor: pointer;
+
+        .Title {
+            margin-bottom: 40px;
+        }
+
+        .itens {
+            display: none;
+            visibility: hidden;
+            transition: 500ms;
+
+            .item {
+                min-height: 29px;
+                > div {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+
+                .icone {
+                    position: relative;
+                    width: 40px;
+
+                    .img-icone {
+                        display: flex;
+                        justify-content: right;
+                        position: relative;
+                        padding: 0 4px;
+                        width: 100%;
+                        height: 26px;
+                        background-color: #364A61;
+
+                        img {
+                            width: 22px;
+                        }
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: -50px;
+                            top: 0;
+                            width: 130%;
+                            height: 100%;
+                            background-color: #364A61;
+                        }
+                    }
+                }
+
+                .cod {
+                    width: 70px;
+                    font-weight: 700;
+                }
+
+                .nome {
+                    width: 78%;
+                }
+            }
+        }
+
+        .fotos {
+            display: none;
+            visibility: hidden;
+            transition: 500ms;
+            padding: 40px 11%;
+
+            img {
+                margin-bottom: 15px;
+            }
+        }
+
+        i {
+            position: absolute;
+            top: 8px;
+            right: 0;
+            font-size: 40px;
+        }
+
+        &._active {
+            .itens,.fotos {
+                display: block;
+                visibility: visible;
+            }
+
+            i {
+                &:before {
+                    content: '\ea78';
+
+                }
+            }
+        }
+    }
+
+    .legenda {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        max-width: 400px;
+        border: 1px solid #364A61;
+        overflow: hidden;
+
+        .icone {
+            position: relative;
+            display: flex;
+            position: relative;
+            width: 120px;
+            height: 46px;
+            padding: 0 4px;
+            background-color: #364A61;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: -60px;
+                top: 0;
+                width: 60px;
+                height: 100%;
+                background-color: #364A61;
+            }
+        }
+    }
+
+    @media(max-width: $desktop) {
+        .categoria .itens .item .nome {
+            width: 68%;
+        }
+    }
+
+    @media(max-width: $tablet) {
+        .categoria .itens .item {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+            margin-bottom: 15px;
+
+            .cod {
+                width: calc(100% - 50px);
+            }
+            .nome {
+                margin-left: 45px;
+                width: 80%;
+            }
+        }
+    }
+
+    @media(max-width: $phone) {
+        .categoria .itens .item {
+            .nome {
+                width: 70%;
+            }
+        }
+    }
+}

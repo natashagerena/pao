@@ -1,0 +1,43 @@
+// Row gutters
+@mixin row-gutters($gutter) {
+    & {
+        margin-left: -$gutter;
+    }
+
+    > .col,
+    > [class*="col-"] {
+        margin-left: $gutter;
+    }
+
+    @for $i from 1 through 12 {
+        $width: 100% / 12 * $i;
+
+        > .col-#{$i} {
+            width: calc(#{$width} - #{$gutter});
+        }
+
+        ._offset-#{$i} {
+            margin-left: calc(#{$width} + #{$gutter});
+        }
+    }
+
+    @media (max-width: $tablet) {
+        &,
+        .col,
+        [class*="col-"] {
+            margin-left: 0;
+            width: auto;
+        }
+    }
+}
+
+// Padding
+@mixin padding-x($size) {
+    padding-left: $size;
+    padding-right: $size;
+}
+
+@mixin padding-y($size) {
+    padding-top: $size;
+    padding-bottom: $size;
+}

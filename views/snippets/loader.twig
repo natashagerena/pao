@@ -1,0 +1,10 @@
+<style>
+    .wow {visibility: hidden;}
+    .loaded .Loader {height: 0; opacity: 0; visibility: hidden;}
+    .Loader {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; z-index: 9999; transition: 1s ease-in-out;}
+    .Loader div {position: absolute; top: 50%; left: 50%; border: 6px solid; border-radius: 50%; transform: translate(-50%, -50%); animation: ldio 1s cubic-bezier(0, .4, .8, 1) infinite;}
+    .Loader div:nth-child(1) {/* Alterar cor 1 aqui */border-color: #393939; animation-delay: 0s;}
+    .Loader div:nth-child(2) {/* Alterar cor 2 aqui */border-color: #EAEAEA; animation-delay: -0.5s;}
+    @keyframes ldio {0% {width: 0; height: 0; opacity: 1;} 100% {width: 96px; height: 96px; opacity: 0; border-width: 0;}}
+</style>
+<div class="Loader loadingio-spinner-ripple"><div></div><div></div></div>

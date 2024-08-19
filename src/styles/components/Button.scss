@@ -1,0 +1,17 @@
+.Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $family-primary;
+    font-size: 18px;
+    border: none;
+    height: 54px;
+    background-color: #393939;
+    color: #fff;
+    padding: 0 40px;
+    min-width: 180px;
+
+    &:hover {
+        color: #fff;
+    }
+}

@@ -1,0 +1,23 @@
+.Redes {
+    display: flex;
+    gap: 46px;
+
+    &._contato {
+        justify-content: center;
+        margin-bottom: 40px;
+        gap: 30px;
+    }
+
+    &._menutoggle {
+        justify-content: center;
+        gap: 30px;
+
+        li a {
+            color: #fff;
+
+            &:hover {
+                color: #d6cbb7;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+    {% include "banner.twig" %}
+
+    <div x-style="mb: 46px;">
+        {% include "header.twig" %}
+    </div>
+
+    <div class="Container">
+        <div class="_text-center wow fadeIn">
+            <h2 class="Title _with-line">Cardápio</h2>
+            <p x-style="mb: 32px;">{{ post.subtitulo_cardapio }}</p>
+        </div>
+
+        <div class="Cardapio">
+            <div class="categorias wow fadeIn">
+            {% for key, cat in post.get_field('cardapio') %}
+                <div class="categoria" data-target="cat{{ key }}">
+                    <h5 class="Title _h5">{{ cat.categoria }}</h5>
+                    <i class="ri-arrow-down-s-line"></i>
+
+                    <div class="itens">
+                        {% if not cat.itens %}
+                            <p class="_text-center">Nenhum item cadastrado...<br><br><br></p>
+                        {% endif %}
+                    {% for item in cat.itens %}
+                        <div class="item">
+                            <div class="icone">
+                                {% if item.pedido_rapido == 1 %}
+                                    <div class="img-icone">
+                                        <img src="{{ theme.link }}/assets/images/time.svg">
+                                    </div>
+                                {% else %}
+                                    <br>
+                                {% endif %}
+                            </div>
+                            <div class="cod">{{ item.codigo }}</div>
+                            <div class="nome">{{ item.nome }}</div>
+                            <div class="preco">{{ (item.preco) ? 'R$ ' ~ item.preco : '' }}</div>
+                        </div>
+                    {% endfor %}
+                    </div>
+
+                    <div class="fotos">
+                        <div class="Row _gutters-sm">
+                            {% for item in cat.fotos %}
+                                <div class="col-4">
+                                    <a href="{{ Image(item.foto) }}" class="foto"><img src="{{ Image(item.foto)|resize(400,400) }}" alt="categoria foto" width="400" height="400"></a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+
+            <div class="legenda">
+                <div class="icone"><img src="{{ theme.link }}/assets/images/time.svg"></div>
+                <div>
+                    <p><b>Pedido rápido</b></p>
+                    <p x-style="text: 14px;">Itens com essa marcação, são mais rápidos no preparo e podem, eventualmente, ficar pronto antes que outros pedidos.</p>
+                </div>
+            </div>
+        </div>
+
+        {% if post.arquivo_cardapio %}
+            <div x-style="flex; justify-content: space-between; align-items: center; gap: 40px; border-top: 2px solid #393939; border-bottom: 2px solid #393939; p: 40px 0; m: 0 0 80px; md|flex-direction: column;">
+                <div x-style="max-width: 670px;">
+                    <p>{{ post.legenda_cardapio}}</p>
+                </div>
+                <div>
+                    <a href="{{ post.get_field('arquivo_cardapio').url }}" class="Button" target="_blank">Veja mais em nosso cardápio</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="Container _text-center wow fadeIn">
+        <h2 class="Title _with-line">Nosso canal</h2>
+        <p x-style="mb: 32px;">{{ post.subtitulo_canal }}</p>
+    </div>
+
+    {% include "videos.twig" %}
+{% endblock %}

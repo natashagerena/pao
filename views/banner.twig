@@ -1,0 +1,14 @@
+<div class="Banner">
+    <div class="itens">
+        {% for item in post.get_field('fotos') %}
+            <div class="item">
+                <div class="imagem _bg" style="background-image: url({{ Image(item.foto) }})"></div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="fixo">
+        <a href="{{ site.url }}" aria-label="Voltar para a home" class="logo"><img src="{{ option('logo_branco') }}" alt="Logo pão" width="230" height="112"></a>
+        <a href="#menu" class="menuToggle"><i class="ri-menu-line"></i></a>
+        <a href="#home" class="scroll">Rolar para baixo</a>
+    </div>
+</div>

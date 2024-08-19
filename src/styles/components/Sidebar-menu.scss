@@ -1,0 +1,61 @@
+.Sidebar-menu {
+    background-color: #393939;
+    box-shadow: -8px 0 24px rgba(0,0,0,.25), 0 0 0 100vmax rgba(0,0,0,.6);
+    height: 100vh;
+    max-width: 360px;
+    opacity: 0;
+    overflow-y: scroll;
+    padding: 44px;
+    position: fixed;
+    right: -200px;
+    top: 0;
+    transition: all .25s ease-in-out;
+    visibility: hidden;
+    width: 100vw;
+    z-index: 200;
+    text-align: center;
+
+    nav {
+        margin-bottom: 8vh;
+
+        ul {
+            li {
+                a {
+                    display: block;
+                    padding: 1vh 0;
+                    color: #d6cbb7;
+                    font-size: 20px;
+
+                    &:hover {
+                        color: #fff;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .menuToggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: 0;
+        font-size: 40px;
+        color: #d6cbb7;
+        cursor: pointer;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    img {
+        margin: 40px 0;
+    }
+}
+._menu-opened .Sidebar-menu {
+    opacity: 1;
+    right: 0;
+    visibility: visible;
+}

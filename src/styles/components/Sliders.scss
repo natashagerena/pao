@@ -1,0 +1,113 @@
+.Sliders {
+    position: relative;
+    width: 94%;
+
+    @media(max-width: $phone){
+        width: 100%;
+    }
+
+    .slider-info {
+        display: block;
+        padding: 40px;
+        background-color: #393939;
+        position: absolute;
+        top: -60px;
+        right: 70px;
+        z-index: 10;
+        color: #ffffff;
+
+        @media(max-width: $desktop){
+            padding: 30px;
+            top: -40px;
+        }
+        @media(max-width: $notebook){
+            padding: 25px;
+            top: -30px;
+        }
+        @media(max-width: $tablet){
+            padding: 20px;
+            top: -25px;
+        }
+        @media(max-width: $phone){
+            padding: 15px;
+            top: -15px;
+            right: 40px;
+        }
+    }
+
+    .item {
+        position: relative;
+        padding-top: 80vh;
+
+        @media(max-width: $tablet){
+            padding-top: 40%;
+        }
+
+        .texto {
+            position: absolute;
+            top: 34%;
+            left: 4.5%;
+
+            h3 {
+                font-size: 22px;
+                padding: 25px 20px;
+                line-height: 1;
+
+                @media(max-width: $desktop){
+                    font-size: 20px;
+                    padding: 20px 15px;
+                }
+                @media(max-width: $notebook){
+                    font-size: 18px;
+                    padding: 15px 10px;
+                }
+                @media(max-width: $tablet){
+                    font-size: 16px;
+                    padding: 10px 8px;
+                }
+                @media(max-width: $phone){
+                    font-size: 14px;
+                }
+            }
+
+            ._bg-text-dark {
+                background-color: #393939;
+                color: #ffffff;
+            }
+            ._bg-text-light {
+                background-color: #d6cbb7;
+                color: #393939;
+                margin-right: 70px;
+            }
+        }
+    }
+
+    .tns-controls {
+        position: absolute;
+        bottom: -30px;
+        right: 70px;
+        z-index: 10;
+
+        button {
+            background-color: #ffffff;
+            font-size: 35px;
+            padding: 14px 20px;
+
+            @media(max-width: $desktop){
+                font-size: 30px;
+                padding: 10px 15px;
+            }
+            @media(max-width: $notebook){
+                font-size: 26px;
+            }
+            @media(max-width: $tablet){
+                font-size: 22px;
+                padding: 10px;
+            }
+            @media(max-width: $phone){
+                font-size: 20px;
+                right: 40px;
+            }
+        }
+    }
+}

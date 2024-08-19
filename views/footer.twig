@@ -1,0 +1,33 @@
+<footer class="Footer">
+    <div class="Container _narrow">
+        <div class="infos">
+            <img src="{{ option('logo_branco') }}" alt="Logo pão" width="280" height="136">
+            <p>{{ option('endereco') | nl2br }}</p>
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="{{ site.url }}/">Home</a></li>
+                    <li><a href="{{ site.url }}/cardapio/">Cardápio</a></li>
+                    <li><a href="{{ site.url }}/cafe/">Café</a></li>
+                    <li><a href="{{ site.url }}/contato/">Contato</a></li>
+                </ul>
+            </nav>
+
+            <ul class="Redes">
+                {% for item in option('redes_sociais') %}
+                    <li><a href="{{ item.link }}" aria-label="{{ item.rotulo }}" target="_blank"><i class="ri-{{ item.rotulo }}-line"></i></a></li>
+                {% endfor %}
+
+                {% if option('whatsapp') %}
+                <li><a href="https://wa.me/55{{option('whatsapp')}} | replace({' ':'', '-':'', '(':'', ')':'', '.':'', '+':'' }) }}" aria-label="Link whatsapp" target="_blank"><i class="ri-whatsapp-line"></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        {% if option('botao_flutuante') %}
+            <span class="whats-flutuante"><a href="https://wa.me/55{{ option('whatsapp') | replace({' ':'', '-':'', '(':'', ')':'', '.':'', '+':'' }) }}" aria-label="Link whatsapp" target="_blank"><i class="ri-whatsapp-line"></i></a></span>
+        {% endif %}
+    </div>
+
+</footer>

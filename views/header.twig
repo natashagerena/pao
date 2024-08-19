@@ -1,0 +1,52 @@
+<header class="Header" id="home">
+    <div>
+        <nav>
+            <ul>
+                <li><a href="{{ site.url }}/">home</a></li>
+                <li><a href="{{ site.url }}/contato/">contato</a></li>
+                <li><a href="{{ site.url }}/cardapio/">cardápio</a></li>
+                <li><a href="{{ site.url }}/cafe/">café</a></li>
+            </ul>
+        </nav>
+
+        <ul class="Redes">
+            {% for item in option('redes_sociais') %}
+                <li><a href="{{ item.link }}" aria-label="{{ item.rotulo }}" target="_blank"><i class="ri-{{ item.rotulo }}-line"></i></a></li>
+            {% endfor %}
+
+            {% if option('whatsapp') %}
+            <li><a href="https://wa.me/55{{option('whatsapp')}} | replace({' ':'', '-':'', '(':'', ')':'', '.':'', '+':'' }) }}" aria-label="Link whatsapp" target="_blank"><i class="ri-whatsapp-line"></i></a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <img src="{{ option('logo_preto') }}" alt="Logo pão" width="196" height="96">
+    <a href="#menu" class="menuToggle"><i class="ri-menu-line"></i></a>
+</header>
+
+<div class="Sidebar-menu">
+    <button class="menuToggle" type="button">
+        <i class="ri-close-line"></i>
+    </button>
+
+    <img src="{{ option('logo_branco') }}" alt="Logo pão" width="196" height="96">
+
+    <nav>
+        <ul>
+            <li><a href="{{ site.url }}/">Home</a></li>
+            <li><a href="{{ site.url }}/contato/">Contato</a></li>
+            <li><a href="{{ site.url }}/cardapio/">Cardápio</a></li>
+            <li><a href="{{ site.url }}/cafe/">Café</a></li>
+        </ul>
+    </nav>
+
+    <ul class="Redes _menutoggle">
+        {% for item in option('redes_sociais') %}
+            <li><a href="{{ item.link }}" aria-label="{{ item.rotulo }}" target="_blank"><i class="ri-{{ item.rotulo }}-line"></i></a></li>
+        {% endfor %}
+
+        {% if option('whatsapp') %}
+        <li><a href="https://wa.me/55{{option('whatsapp')}} | replace({' ':'', '-':'', '(':'', ')':'', '.':'', '+':'' }) }}" aria-label="Link whatsapp" target="_blank"><i class="ri-whatsapp-line"></i></a></li>
+        {% endif %}
+    </ul>
+</div>

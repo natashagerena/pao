@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+    {% include "banner.twig" %}
+
+    <div x-style="mb: 46px;">
+        {% include "header.twig" %}
+    </div>
+
+    <div class="Produtos">
+        {% for item in post.get_field('produtos') %}
+            <div class="produto wow fadeIn">
+                <div class="Container _narrow">
+                    <div class="foto"><img src="{{ Image(item.foto) }}" alt="{{ item.nome }}"></div>
+                    <div class="textos">
+                        <h3 class="Title _h3 nome">{{ item.nome | nl2br }}</h3>
+                        <p class="tipo">{{ item.tipo }}</p>
+                        <p class="quantidade">{{ item.quantidade }}</p>
+                        <p class="descricao">{{ item.descricao | nl2br }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+
+    <div class="Container _text-center wow fadeIn">
+        <h2 class="Title _with-line">Nosso canal</h2>
+        <p x-style="mb: 32px;">{{ post.subtitulo_canal }}</p>
+    </div>
+
+    {% include "videos.twig" %}
+{% endblock %}

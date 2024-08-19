@@ -1,0 +1,62 @@
+.Banner {
+    overflow: hidden;
+
+    .item .imagem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 100vh;
+        transform: scale(1.2);
+        transition: 2s;
+    }
+
+    .fixo {
+        .menuToggle {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .scroll {
+            position: absolute;
+            left: 50%;
+            bottom: 6px;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 10px;
+
+            &:after {
+                content: '';
+                display: block;
+                margin: 18px auto 0;
+                width: 2px;
+                height: 70px;
+                background-color: #fff;
+            }
+        }
+    }
+
+    .tns-slide-active .imagem {
+        animation: zoomAnimation 7s;
+    }
+
+    .tns-controls,.tns-nav {display: none;}
+
+    .logo {
+        position: absolute;
+        top: 44%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @media(max-width: $tablet){
+        .fixo .menuToggle,
+        .logo {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div class="Videos" x-style="mb: 80px;">
+    <div class="destaque">
+        {% for key, item in home.get_field('videos') %}
+            <div class="item" id="video{{key}}" data-video="{{ item.link }}" style="display:{% if key != 0 %}none{% else %}block{% endif %}"><div class="imagem _bg" style="background-image: url({{ Image(item.imagem) }})"><span class="play"></span></div></div>
+        {% endfor %}
+        <div class="video" id="video-container" style="display:none;"></div>
+    </div>
+    <div class="Container">
+        <div class="itens">
+            {% for key,item in home.get_field('videos') %}
+                <div class="item" data-target="#video{{key}}"><div class="imagem _bg" style="background-image: url({{ Image(item.imagem) }})"><span class="play"></span></div></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

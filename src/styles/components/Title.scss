@@ -1,0 +1,20 @@
+.Title {
+    font-family: $family-heading;
+    font-weight: 600;
+    font-size: 30px;
+
+    &._with-line {
+        &:after {
+            content: '';
+            display: block;
+            margin: 14px auto;
+            width: 28px;
+            height: 1px;
+            background-color: $black;
+        }
+    }
+
+    @media(max-width: $desktop){font-size: 26px;}
+    @media(max-width: $notebook){font-size: 22px;}
+    @media(max-width: $tablet){font-size: 20px;}
+}

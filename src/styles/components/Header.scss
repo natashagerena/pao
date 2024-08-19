@@ -1,0 +1,68 @@
+.Header {
+    position: relative;
+
+    > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 46px 56px 0;
+        align-items: center;
+
+        nav {
+            ul {
+                display: flex;
+                gap: 46px;
+
+                li {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    > img {
+        display: block;
+        margin: 8px auto 0;
+    }
+
+    .menuToggle {
+        display: none;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: #393939;
+        font-size: 30px;
+    }
+
+    @media(max-width: $tablet){
+        > img {
+            display: none;
+        }
+    }
+
+    @media(max-width: $phone){
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        z-index: 11;
+
+        > div, .Redes {
+            display: none;
+        }
+
+
+        > img {
+            display: block;
+            margin: 0;
+            width: 100px;
+        }
+
+        .menuToggle {
+            display: block;
+        }
+    }
+}

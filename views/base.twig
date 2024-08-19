@@ -1,0 +1,43 @@
+{% import "snippets/macros.twig" as macros %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include 'snippets/meta.twig' %}
+    {% include 'snippets/google-ga.twig' %}
+    {% include 'snippets/google-gtm.twig' %}
+
+    <title>{{ wp_title ? wp_title ~ ' - ' }}{{ site.name }}</title>
+
+    {{ wp_head }}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/lfh4xkg.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="shortcut icon" href="{{ option('favicon') }}" type="image/x-icon">
+</head>
+<body class="animsition up">
+    {% include 'snippets/noscript.twig' %}
+    {% include 'snippets/loader.twig' %}
+
+    {% block conteudo %}{% endblock %}
+
+    {% include 'footer.twig' %}
+    {% include 'snippets/cookies.twig' %}
+    {% include 'snippets/facebook-pixel.twig' %}
+    {{ wp_footer }}
+    <script
+        src="{{ asset('js/assembler.min.js') }}"
+        data-mode="desktop-first"
+        data-breakpoint-xs="480px"
+        data-breakpoint-sm="768px"
+        data-breakpoint-md="992px"
+        data-breakpoint-lg="1200px"
+        defer>
+    </script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>
